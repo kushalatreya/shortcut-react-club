@@ -14,7 +14,7 @@ import React from "react"
  */
 
  //Your answer here
-
+export const helloWorld = <h1>Hello World!</h1>
  /**
  * 01-2 - nested JSX
  *  
@@ -43,9 +43,12 @@ import React from "react"
  * 
  */
 
- 
-
-
+export const nestedJSX = (
+    <div className="card">
+        <h4>John Doe</h4>
+        <p>Age: 42</p>
+    </div>
+)
 /**
  * 01-3 - interpolating data part 1
  * 
@@ -60,9 +63,12 @@ import React from "react"
  *  
  */
 
-export const interpolateText = "I am a JS string"
-
-
+export const interpolateText = "I am a JS string";
+export const interpolatingPart1 = (
+    <div>
+        {interpolateText}
+    </div>
+)
 
 /**
  * 01-4 - interpolating data part 2
@@ -78,9 +84,12 @@ export const interpolateText = "I am a JS string"
  */
 
 export const interpolateUser = {name: "Jeanne", age: 30}; 
-
-
-
+export const interpolatingPart2 = (
+    <div className= 'card'>
+        <h4>{interpolateUser.name}</h4>
+        <p>Age: {interpolateUser.age}</p>
+    </div>
+)
 
  /**
  * 01-5 - interpolating data part 3
@@ -101,9 +110,16 @@ export const interpolateUser = {name: "Jeanne", age: 30};
  * 
  */
 export const interpolateArray = [{flavor: "chocolate", cost: 2}, {flavor: "vanilla", cost: 1.5}, {flavor: "papaya", cost: 3}];
-
-
-
+export const interpolatingPart3 = (
+    <ul>
+        {interpolateArray.map((item,index) => (
+            <ul key={index}>
+                <li ><h4>Flavor: {item.flavor}</h4>
+                <p>Price: {item.cost}€</p></li>  
+            </ul>
+         ) )}
+    </ul>
+)
 
  /**
  * 01-6 - interpolating data part 4
@@ -130,9 +146,15 @@ export const interpolateArray = [{flavor: "chocolate", cost: 2}, {flavor: "vanil
  * - age: Number
  * It should return the same JSX element as exercice 2 and 4 but uses the parameter of the function as data source.
  */
-
-
- 
+export function elementFactory (name,age) {
+   
+   return (
+   <div className='card'>
+           <h4>{name}</h4>
+           <p>Age: {age}</p>
+    </div>
+    )
+}
 
   /**
  * 01-8 - interpolating dynamic data part 2
@@ -147,22 +169,15 @@ export const interpolateArray = [{flavor: "chocolate", cost: 2}, {flavor: "vanil
  * Your function will return the same JSX as exercie 7 but you will have to extract the data from the props this time.
  */
 
+export function UserCardComponent (props) {
+    return (
+        <div className='card'>
+            <h4>{props.name}</h4>
+            <p>Age: {props.age}</p>
+        </div>
+    )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
  /**
   * Congratulations !
